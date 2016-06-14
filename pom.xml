@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>SoftwareFactory</groupId>
+    <artifactId>iOSlave</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>xcode-app</packaging>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nextoo-snapshot</id>
+            <url>
+                http://nextoo-ci:8081/nexus/content/repositories/nextoo-snapshot/
+            </url>
+        </snapshotRepository>
+        <repository>
+            <id>nextoo-releases</id>
+            <url>
+                http://nextoo-ci:8081/nexus/content/repositories/nextoo-releases/
+            </url>
+        </repository>
+    </distributionManagement>
+
+    <dependencies>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.sap.prd.mobile.ios.mios</groupId>
+                <artifactId>xcode-maven-plugin</artifactId>
+                <version>1.7.0</version>
+                <extensions>true</extensions>
+            </plugin>
+            <!--  Used to cancel the default Jar file creation  -->
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.1</version>
+                <executions>
+                    <execution>
+                        <id>default-jar</id>
+                        <phase>none</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
